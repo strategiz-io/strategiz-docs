@@ -26,6 +26,6 @@ Strategiz is built using a microservices architecture with clear separation of c
 
 - **Backend**: Java with Spring Boot
 - **Frontend**: React with TypeScript
-- **Database**: PostgreSQL with MongoDB
+- **Database**: PostgreSQL with Firebase Firestore
 - **Message Queue**: Apache Kafka
 - **Infrastructure**: Docker and Kubernetes
