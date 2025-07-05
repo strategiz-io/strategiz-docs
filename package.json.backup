@@ -4,7 +4,7 @@
   "description": "Documentation for Strategiz Platform",
   "main": "index.js",
   "scripts": {
-    "start": "npm run banner && docusaurus start",
+    "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -12,8 +12,7 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "sync-docs": "node scripts/sync-docs.js",
-    "banner": "node scripts/banner.js"
+    "sync-docs": "node scripts/sync-docs.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.1.0",
