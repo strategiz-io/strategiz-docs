@@ -13,61 +13,37 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  // Architecture documentation
-  architectureSidebar: [
+  // Main documentation sidebar
+  mainSidebar: [
     'intro',
     {
       type: 'category',
       label: 'Architecture',
-      items: ['architecture/overview', 'architecture/microservices', 'architecture/database'],
+      items: ['architecture/overview'],
     },
-  ],
-
-  // Authentication documentation
-  authSidebar: [
     {
       type: 'category',
       label: 'Authentication',
       items: [
         'auth/overview',
         'auth/totp',
-        'auth/oauth',
-        'auth/sms',
-        'auth/email-otp',
-        'auth/passkey',
       ],
     },
-  ],
-
-  // API documentation
-  apiSidebar: [
     {
       type: 'category',
       label: 'API Reference',
       items: [
         'api/endpoints',
-        'api/authentication',
-        'api/portfolio',
-        'api/strategy',
-        'api/user',
-        'api/exchange',
       ],
     },
-  ],
-
-  // Deployment documentation
-  deploymentSidebar: [
     {
       type: 'category',
       label: 'Deployment',
       items: [
         'deployment/overview',
-        'deployment/docker',
-        'deployment/kubernetes',
-        'deployment/cloud',
       ],
     },
   ],
 };
 
-module.exports = sidebars; 
+module.exports = sidebars;
