@@ -70,27 +70,29 @@ const config = {
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'architectureSidebar',
+            sidebarId: 'mainSidebar',
             position: 'left',
+            label: 'Documentation',
+          },
+          {
+            to: '/docs/architecture/overview',
             label: 'Architecture',
+            position: 'left',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'authSidebar',
-            position: 'left',
+            to: '/docs/auth/overview',
             label: 'Authentication',
+            position: 'left',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'apiSidebar',
-            position: 'left',
+            to: '/docs/api/endpoints',
             label: 'API',
+            position: 'left',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'deploymentSidebar',
-            position: 'left',
+            to: '/docs/deployment/overview',
             label: 'Deployment',
+            position: 'left',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
