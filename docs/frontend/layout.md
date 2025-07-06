@@ -1,11 +1,11 @@
 ---
-title: endpoints
-description: Documentation for endpoints (coming soon)
+title: layout
+description: Documentation for layout (coming soon)
 ---
 
-# endpoints
+# layout
 
-Documentation for endpoints (coming soon)
+Documentation for layout (coming soon)
 
 > 📝 This documentation is coming soon. In the meantime, check out the [source code](https://github.com/strategiz-io) for implementation details.
 

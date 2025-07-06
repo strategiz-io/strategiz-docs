@@ -1,11 +1,11 @@
 ---
-title: endpoints
-description: Documentation for endpoints (coming soon)
+title: README
+description: Documentation for README (coming soon)
 ---
 
-# endpoints
+# README
 
-Documentation for endpoints (coming soon)
+Documentation for README (coming soon)
 
 > 📝 This documentation is coming soon. In the meantime, check out the [source code](https://github.com/strategiz-io) for implementation details.
 

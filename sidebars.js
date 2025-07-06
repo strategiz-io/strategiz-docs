@@ -27,29 +27,18 @@ const sidebars = {
       collapsed: false,
       items: [
         {
-          type: 'doc',
-          id: 'backend/intro',
-          label: 'Overview',
-        },
-        {
           type: 'category',
           label: 'Architecture',
           items: [
             'architecture/overview',
-            'architecture/exception-handling',
-            'architecture/logging',
           ],
         },
         {
           type: 'category',
           label: 'Authentication',
           items: [
-            'auth/oauth',
+            'auth/overview',
             'auth/totp',
-            'auth/sms',
-            'auth/email-otp',
-            'auth/passkey',
-            'auth/token-auth',
           ],
         },
         {
@@ -57,10 +46,6 @@ const sidebars = {
           label: 'API Reference',
           items: [
             'api/endpoints',
-            'api/coinbase',
-            'api/device',
-            'api/provider',
-            'api/user',
           ],
         },
         {

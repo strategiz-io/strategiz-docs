@@ -1,11 +1,11 @@
 ---
-title: endpoints
-description: Documentation for endpoints (coming soon)
+title: exchanges
+description: Documentation for exchanges (coming soon)
 ---
 
-# endpoints
+# exchanges
 
-Documentation for endpoints (coming soon)
+Documentation for exchanges (coming soon)
 
 > 📝 This documentation is coming soon. In the meantime, check out the [source code](https://github.com/strategiz-io) for implementation details.
 
