@@ -6,6 +6,7 @@ const axios = require('axios');
 
 // Configuration
 const CORE_REPO = 'strategiz-io/strategiz-core';
+const UI_REPO = 'strategiz-io/strategiz-ui';
 const BRANCH = 'main';
 const DOCS_DIR = 'docs';
 
@@ -15,29 +16,45 @@ const GITHUB_RAW_BASE = 'https://raw.githubusercontent.com';
 
 // Mapping of source files to destination paths
 const DOC_MAPPINGS = {
+  // ========== BACKEND (strategiz-core) ==========
+  
   // Architecture docs
-  'docs/ARCHITECTURE.md': 'docs/architecture/overview.md',
-  'docs/API_ENDPOINTS.md': 'docs/api/endpoints.md',
-  'docs/DEPLOY.md': 'docs/deployment/overview.md',
+  'docs/ARCHITECTURE.md': { dest: 'docs/architecture/overview.md', repo: CORE_REPO },
+  'docs/API_ENDPOINTS.md': { dest: 'docs/api/endpoints.md', repo: CORE_REPO },
+  'docs/DEPLOY.md': { dest: 'docs/deployment/overview.md', repo: CORE_REPO },
   
   // Authentication docs
-  'service/service-auth/docs/TOTP.md': 'docs/auth/totp.md',
-  'service/service-auth/docs/OAuth.md': 'docs/auth/oauth.md',
-  'service/service-auth/docs/SMS.md': 'docs/auth/sms.md',
-  'service/service-auth/docs/EmailOTP.md': 'docs/auth/email-otp.md',
-  'service/service-auth/docs/Passkey.md': 'docs/auth/passkey.md',
+  'service/service-auth/docs/TOTP.md': { dest: 'docs/auth/totp.md', repo: CORE_REPO },
+  'service/service-auth/docs/OAuth.md': { dest: 'docs/auth/oauth.md', repo: CORE_REPO },
+  'service/service-auth/docs/SMS.md': { dest: 'docs/auth/sms.md', repo: CORE_REPO },
+  'service/service-auth/docs/EmailOTP.md': { dest: 'docs/auth/email-otp.md', repo: CORE_REPO },
+  'service/service-auth/docs/Passkey.md': { dest: 'docs/auth/passkey.md', repo: CORE_REPO },
+  
+  // Integration docs
+  'docs/integrations/exchanges.md': { dest: 'docs/integrations/exchanges.md', repo: CORE_REPO },
+  'docs/integrations/kraken-oauth.md': { dest: 'docs/integrations/kraken-oauth.md', repo: CORE_REPO },
   
   // Module specific docs
-  'business/business-token-auth/README.md': 'docs/auth/token-auth.md',
-  'client/client-coinbase/COINBASE-INTEGRATION.md': 'docs/api/coinbase.md',
-  'framework/framework-exception/README.md': 'docs/architecture/exception-handling.md',
-  'framework/framework-logging/README.md': 'docs/architecture/logging.md',
-  'service/service-device/README.md': 'docs/api/device.md',
-  'service/service-provider/README.md': 'docs/api/provider.md',
-  'data/data-user/README.md': 'docs/api/user.md',
+  'business/business-token-auth/README.md': { dest: 'docs/auth/token-auth.md', repo: CORE_REPO },
+  'client/client-coinbase/COINBASE-INTEGRATION.md': { dest: 'docs/api/coinbase.md', repo: CORE_REPO },
+  'framework/framework-exception/README.md': { dest: 'docs/architecture/exception-handling.md', repo: CORE_REPO },
+  'framework/framework-logging/README.md': { dest: 'docs/architecture/logging.md', repo: CORE_REPO },
+  'service/service-device/README.md': { dest: 'docs/api/device.md', repo: CORE_REPO },
+  'service/service-provider/README.md': { dest: 'docs/api/provider.md', repo: CORE_REPO },
+  'data/data-user/README.md': { dest: 'docs/api/user.md', repo: CORE_REPO },
   
   // Root docs
-  'README.md': 'docs/intro.md',
+  'README.md': { dest: 'docs/backend/intro.md', repo: CORE_REPO },
+  
+  // ========== FRONTEND (strategiz-ui) ==========
+  
+  // Frontend docs
+  'docs/README.md': { dest: 'docs/frontend/intro.md', repo: UI_REPO },
+  'docs/features/authentication.md': { dest: 'docs/frontend/authentication.md', repo: UI_REPO },
+  'docs/components/layout.md': { dest: 'docs/frontend/layout.md', repo: UI_REPO },
+  
+  // Root frontend docs
+  'README.md': { dest: 'docs/frontend/overview.md', repo: UI_REPO },
 };
 
 // Function to ensure directory exists
@@ -60,7 +77,7 @@ description: ${description}
 }
 
 // Function to process markdown content
-function processMarkdownContent(content, sourcePath) {
+function processMarkdownContent(content, sourcePath, repo) {
   // Extract title from first h1 heading or use filename
   const h1Match = content.match(/^# (.+)$/m);
   const title = h1Match ? h1Match[1] : path.basename(sourcePath, '.md');
@@ -75,21 +92,21 @@ function processMarkdownContent(content, sourcePath) {
   // Fix relative links to point to GitHub for now
   processedContent = processedContent.replace(
     /\]\((?!https?:\/\/)([^)]+)\)/g,
-    `](https://github.com/${CORE_REPO}/blob/${BRANCH}/$1)`
+    `](https://github.com/${repo}/blob/${BRANCH}/$1)`
   );
   
   return processedContent;
 }
 
 // Function to fetch file from GitHub
-async function fetchFileFromGitHub(filePath) {
+async function fetchFileFromGitHub(filePath, repo) {
   try {
-    const url = `${GITHUB_RAW_BASE}/${CORE_REPO}/${BRANCH}/${filePath}`;
+    const url = `${GITHUB_RAW_BASE}/${repo}/${BRANCH}/${filePath}`;
     console.log(`Fetching: ${url}`);
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching ${filePath}:`, error.message);
+    console.error(`Error fetching ${filePath} from ${repo}:`, error.message);
     return null;
   }
 }
@@ -104,23 +121,26 @@ function writeLocalFile(content, destinationPath) {
 // Main sync function
 async function syncDocs() {
   console.log('🔄 Starting documentation sync...');
+  console.log('📚 Syncing from:');
+  console.log(`   - Backend: ${CORE_REPO}`);
+  console.log(`   - Frontend: ${UI_REPO}`);
   
   let successCount = 0;
   let errorCount = 0;
   
-  for (const [sourcePath, destinationPath] of Object.entries(DOC_MAPPINGS)) {
+  for (const [sourcePath, config] of Object.entries(DOC_MAPPINGS)) {
     try {
-      const content = await fetchFileFromGitHub(sourcePath);
+      const content = await fetchFileFromGitHub(sourcePath, config.repo);
       if (content) {
-        const processedContent = processMarkdownContent(content, sourcePath);
-        writeLocalFile(processedContent, destinationPath);
+        const processedContent = processMarkdownContent(content, sourcePath, config.repo);
+        writeLocalFile(processedContent, config.dest);
         successCount++;
       } else {
-        console.warn(`⚠️  Skipping ${sourcePath} (not found)`);
+        console.warn(`⚠️  Skipping ${sourcePath} from ${config.repo} (not found)`);
         errorCount++;
       }
     } catch (error) {
-      console.error(`❌ Error processing ${sourcePath}:`, error.message);
+      console.error(`❌ Error processing ${sourcePath} from ${config.repo}:`, error.message);
       errorCount++;
     }
   }

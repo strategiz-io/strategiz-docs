@@ -13,34 +13,103 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  // Main documentation sidebar
+  // Main sidebar with organized sections
   mainSidebar: [
-    'intro',
     {
-      type: 'category',
-      label: 'Architecture',
-      items: ['architecture/overview'],
+      type: 'doc',
+      id: 'intro',
+      label: 'Getting Started',
     },
     {
       type: 'category',
-      label: 'Authentication',
+      label: '🏗️ Backend (strategiz-core)',
+      collapsible: true,
+      collapsed: false,
       items: [
-        'auth/overview',
-        'auth/totp',
+        {
+          type: 'doc',
+          id: 'backend/intro',
+          label: 'Overview',
+        },
+        {
+          type: 'category',
+          label: 'Architecture',
+          items: [
+            'architecture/overview',
+            'architecture/exception-handling',
+            'architecture/logging',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Authentication',
+          items: [
+            'auth/oauth',
+            'auth/totp',
+            'auth/sms',
+            'auth/email-otp',
+            'auth/passkey',
+            'auth/token-auth',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'API Reference',
+          items: [
+            'api/endpoints',
+            'api/coinbase',
+            'api/device',
+            'api/provider',
+            'api/user',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Integrations',
+          items: [
+            'integrations/exchanges',
+            'integrations/kraken-oauth',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Deployment',
+          items: [
+            'deployment/overview',
+          ],
+        },
       ],
     },
     {
       type: 'category',
-      label: 'API Reference',
+      label: '🎨 Frontend (strategiz-ui)',
+      collapsible: true,
+      collapsed: false,
       items: [
-        'api/endpoints',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Deployment',
-      items: [
-        'deployment/overview',
+        {
+          type: 'doc',
+          id: 'frontend/intro',
+          label: 'Overview',
+        },
+        {
+          type: 'doc',
+          id: 'frontend/overview',
+          label: 'Getting Started',
+        },
+        {
+          type: 'category',
+          label: 'Features',
+          items: [
+            'frontend/authentication',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Components',
+          items: [
+            'frontend/layout',
+          ],
+        },
       ],
     },
   ],
