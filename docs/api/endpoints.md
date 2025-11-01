@@ -1,4 +1,10 @@
 ---
+id: endpoints
+title: Endpoints
+sidebar_label: Endpoints
+---
+
+---
 title: endpoints
 description: Documentation for endpoints (coming soon)
 ---

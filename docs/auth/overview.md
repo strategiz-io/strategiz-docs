@@ -1,4 +1,10 @@
 ---
+id: overview
+title: Overview
+sidebar_label: Overview
+---
+
+---
 title: authentication
 description: Documentation for authentication (coming soon)
 ---

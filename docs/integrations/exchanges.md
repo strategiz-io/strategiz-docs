@@ -1,4 +1,10 @@
 ---
+id: exchanges
+title: Exchanges
+sidebar_label: Exchanges
+---
+
+---
 title: exchanges
 description: Documentation for exchanges (coming soon)
 ---

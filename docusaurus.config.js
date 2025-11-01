@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 const config = {
   title: 'Strategiz Documentation',
   tagline: 'Comprehensive documentation for the Strategiz trading platform',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
 
   // Set the production url of your site here
   url: 'https://strategiz-io.github.io',
@@ -43,6 +43,7 @@ const config = {
           editUrl: 'https://github.com/strategiz-io/strategiz-core/tree/main/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
+          exclude: ['**/build/**', '**/target/**', '**/node_modules/**'],
         },
         blog: {
           showReadingTime: true,
@@ -61,18 +62,26 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/strategiz-social-card.jpg',
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: false,
+      },
       navbar: {
-        title: 'Strategiz',
+        title: '',
         logo: {
-          alt: 'Strategiz Logo',
-          src: 'img/logo.svg',
+          alt: 'Strategiz',
+          src: 'img/logo.png',
+          height: 32,
         },
+        hideOnScroll: false,
+        style: 'dark',
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'mainSidebar',
+            sidebarId: 'technical-docs',
             position: 'left',
-            label: 'Documentation',
+            label: 'Technical Docs',
           },
           {
             to: '/docs/architecture/overview',

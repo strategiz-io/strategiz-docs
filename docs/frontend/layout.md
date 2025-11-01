@@ -1,4 +1,10 @@
 ---
+id: layout
+title: Layout
+sidebar_label: Layout
+---
+
+---
 title: layout
 description: Documentation for layout (coming soon)
 ---

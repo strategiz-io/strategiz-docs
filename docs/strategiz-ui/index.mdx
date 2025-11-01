@@ -1,0 +1,380 @@
+---
+id: strategiz-ui
+title: Strategiz UI
+sidebar_label: Overview
+---
+
+# 🎨 Strategiz UI
+
+The frontend web application for the Strategiz trading platform, built with React, TypeScript, Redux, and Material-UI.
+
+---
+
+## 📚 Documentation Index
+
+### Architecture & Setup
+- [🏛️ Architecture Overview](architecture.mdx) - System architecture, design patterns, and technical decisions
+- [⚙️ Development Setup](setup/development.md) - Local environment setup and development workflow
+- [🚀 Deployment Guide](setup/deployment.md) - Production deployment and CI/CD pipeline
+
+### Features & Screens
+
+#### Authentication
+- [🏠 Landing Screen](../src/features/landing/docs/landing-screen.mdx) - Home page and user acquisition
+- [🔐 Sign In Screen](../src/features/auth/docs/signin-screen.mdx) - Multi-method authentication (Passkey, TOTP, SMS, OAuth)
+- [✍️ Sign Up Screen](../src/features/auth/docs/signup-screen.mdx) - Three-step user registration
+- [🔄 OAuth Callback Screens](../src/features/auth/docs/oauth-callback-screen.mdx) - OAuth flow completion
+
+#### Core Application
+- [📊 Dashboard Screen](../src/features/dashboard/docs/dashboard-screen.mdx) - Portfolio overview and market data
+- [💼 Portfolio Screen](../src/features/portfolio/docs/portfolio-screen.mdx) - Multi-account portfolio management
+- [🔬 Labs Screen](../src/features/labs/docs/labs-screen.mdx) - Strategy development and backtesting
+- [📈 Live Strategies Screen](../src/features/live-strategies/docs/live-strategies-screen.mdx) - Active strategy monitoring
+- [🛒 Marketplace Screen](../src/features/marketplace/docs/marketplace-screen.mdx) - Strategy marketplace
+- [👤 Profile Screen](../src/features/profile/docs/profile-screen.mdx) - User settings and account management
+
+#### Education
+- [🎓 Learn Screen](../src/features/learn/docs/learn-screen.mdx) - Educational content platform
+
+### Components
+- [📐 Layout Components](components/layout.md) - Header, Footer, Navigation
+- [🔌 Provider Components](../src/components/providers/README.md) - Exchange/broker connection UI
+
+---
+
+## 🎯 What is Strategiz UI?
+
+Strategiz UI is a modern, responsive web application that provides users with:
+
+1. **Portfolio Management**: Track holdings across multiple exchanges and brokerages
+2. **Strategy Development**: Create, backtest, and deploy algorithmic trading strategies
+3. **Marketplace**: Discover and purchase pre-built trading strategies
+4. **Educational Resources**: Learn trading concepts, technical analysis, and strategy development
+5. **Real-time Market Data**: Live prices, charts, and market indicators
+6. **Multi-Provider Integration**: Connect Coinbase, Binance, Kraken, Charles Schwab, and more
+
+---
+
+## 🛠️ Technology Stack
+
+### Core Framework
+- **React 18** - UI framework
+- **TypeScript** - Type-safe JavaScript
+- **Redux Toolkit** - State management
+- **React Router v6** - Client-side routing
+
+### UI & Styling
+- **Material-UI (MUI)** - Component library
+- **Emotion** - CSS-in-JS styling
+- **Neon Theme** - Custom dark theme with neon accents (#39FF14, #00BFFF)
+
+### Data & API
+- **Axios** - HTTP client for API requests
+- **React Query** - Server state management (future)
+- **WebSocket** - Real-time price updates
+
+### Development Tools
+- **Create React App** - Build tooling
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **Jest** - Unit testing
+- **React Testing Library** - Component testing
+- **Cypress** - E2E testing (future)
+
+### Third-Party Integrations
+- **TradingView** - Advanced charting
+- **Device Fingerprinting** - Security and fraud detection
+- **Google Analytics** - User behavior tracking
+
+---
+
+## 🗂️ Project Structure
+
+```
+strategiz-ui/
+├── src/
+│   ├── features/              # Feature modules
+│   │   ├── auth/             # Authentication & authorization
+│   │   ├── landing/          # Landing page
+│   │   ├── dashboard/        # Main dashboard
+│   │   ├── portfolio/        # Portfolio management
+│   │   ├── labs/             # Strategy development
+│   │   ├── live-strategies/  # Active strategy monitoring
+│   │   ├── marketplace/      # Strategy marketplace
+│   │   ├── profile/          # User settings
+│   │   └── learn/            # Educational content
+│   ├── components/           # Shared components
+│   ├── routes/               # Routing configuration
+│   ├── store/                # Redux store
+│   ├── services/             # API services
+│   ├── utils/                # Utilities
+│   └── theme/                # MUI theme
+├── docs/                      # High-level documentation
+└── public/                    # Static assets
+```
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Git
+
+### Installation
+```bash
+# Clone repository
+git clone https://github.com/strategiz/strategiz-ui.git
+cd strategiz-ui
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+
+# Start development server
+npm start
+```
+
+Application will be available at `http://localhost:3000`
+
+### Environment Variables
+```env
+REACT_APP_API_URL=https://api.strategiz.io
+REACT_APP_TRADINGVIEW_KEY=your_tradingview_key
+REACT_APP_GOOGLE_ANALYTICS_ID=UA-XXXXXXXXX-X
+```
+
+---
+
+## 🔑 Key Features
+
+### 1. Multi-Method Authentication
+- **Passkeys** (WebAuthn): Biometric authentication
+- **TOTP**: Google Authenticator, Authy
+- **SMS OTP**: Phone-based verification
+- **OAuth**: Google, Facebook social login
+
+### 2. Provider Integrations
+Connect multiple trading platforms:
+- **Coinbase**: Cryptocurrency exchange
+- **Binance**: Global crypto exchange
+- **Kraken**: Crypto trading platform
+- **Charles Schwab**: Traditional brokerage (coming soon)
+- **Interactive Brokers**: Multi-asset broker (coming soon)
+
+### 3. Strategy Development
+- **Code Editor**: Python, Java, PineScript support
+- **Backtesting Engine**: Historical data testing
+- **Performance Metrics**: ROI, Sharpe ratio, max drawdown
+- **Paper Trading**: Test strategies with simulated funds
+
+### 4. Real-Time Market Data
+- **Live Prices**: WebSocket-based price updates
+- **TradingView Charts**: Advanced technical analysis
+- **Market Watchlist**: Track favorite assets
+- **Price Alerts**: Notifications for price movements (coming soon)
+
+### 5. Educational Platform
+Nine comprehensive modules:
+- Chart Patterns
+- Technical Indicators
+- Trading Fundamentals
+- Markets Overview
+- Options Greeks
+- Advanced Strategies
+- Algorithmic Trading
+- Crypto Markets Hub
+- Bitcoin Cycles Deep Dive
+
+---
+
+## 🎨 Design System
+
+### Color Palette
+```typescript
+{
+  primary: '#39FF14',      // Neon green
+  secondary: '#00BFFF',    // Neon blue
+  accent: '#BF00FF',       // Neon purple
+  background: '#1a1a1a',   // Dark background
+  paper: '#2a2a2a',        // Card background
+  success: '#39FF14',      // Green
+  error: '#FF1744',        // Red
+  warning: '#FFD600',      // Yellow
+}
+```
+
+### Typography
+- **Headers**: Roboto Bold, 24-32px
+- **Body**: Roboto Regular, 14-16px
+- **Monospace**: Roboto Mono (for prices, codes)
+
+### Responsive Breakpoints
+- **Mobile**: < 600px
+- **Tablet**: 600px - 960px
+- **Desktop**: > 960px
+
+---
+
+## 📊 State Management
+
+### Redux Store Structure
+```typescript
+{
+  auth: {
+    user: User | null,
+    isAuthenticated: boolean,
+    tokens: { access: string, refresh: string }
+  },
+  dashboard: {
+    portfolio: PortfolioData,
+    watchlist: Asset[]
+  },
+  portfolio: {
+    providers: Provider[],
+    selectedProvider: string
+  },
+  liveStrategies: {
+    strategies: Strategy[],
+    activeFilters: Filter[]
+  },
+  laboratory: {
+    currentStrategy: Strategy,
+    backtestResults: BacktestResult
+  }
+}
+```
+
+---
+
+## 🧪 Testing
+
+### Unit Tests
+```bash
+npm test                # Run all tests
+npm test -- --coverage  # With coverage report
+```
+
+### E2E Tests
+```bash
+npm run cypress:open    # Interactive mode
+npm run cypress:run     # Headless mode
+```
+
+### Test Coverage Goals
+- **Unit Tests**: > 80% coverage
+- **Integration Tests**: Critical user flows
+- **E2E Tests**: Main user journeys
+
+---
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+npm run build
+```
+
+Creates optimized production bundle in `build/` directory.
+
+### Docker Deployment
+```bash
+docker build -t strategiz-ui .
+docker run -p 3000:3000 strategiz-ui
+```
+
+### Cloud Run Deployment
+```bash
+gcloud builds submit --tag gcr.io/PROJECT_ID/strategiz-ui
+gcloud run deploy strategiz-ui --image gcr.io/PROJECT_ID/strategiz-ui
+```
+
+See [Deployment Guide](setup/deployment.md) for detailed instructions.
+
+---
+
+## 🔐 Security
+
+### Authentication
+- JWT-based authentication
+- HttpOnly cookies for refresh tokens
+- Access tokens in memory/state
+- Automatic token refresh
+
+### Data Protection
+- XSS prevention (React escaping)
+- CSRF protection (state parameters)
+- CSP headers
+- Secure cookie attributes
+
+### Privacy
+- GDPR-compliant device fingerprinting
+- No PII in local storage
+- Encrypted API communication (HTTPS)
+
+---
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Build fails with "out of memory"**
+```bash
+NODE_OPTIONS='--max-old-space-size=8192' npm run build
+```
+
+**Ports already in use**
+```bash
+lsof -ti:3000 | xargs kill -9  # Kill process on port 3000
+```
+
+**Environment variables not loading**
+- Ensure `.env` file exists
+- Restart development server
+- Variables must start with `REACT_APP_`
+
+---
+
+## 📚 Additional Resources
+
+- [API Documentation](../strategiz-core/service/README.md)
+- [Backend Architecture](../strategiz-core/README.md)
+- [Contributing Guide](CONTRIBUTING.md)
+- [Changelog](CHANGELOG.md)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Workflow
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
+
+---
+
+## 📄 License
+
+This project is proprietary software owned by Strategiz, Inc.
+
+---
+
+## 📞 Support
+
+- **Documentation**: https://docs.strategiz.io
+- **Email**: support@strategiz.io
+- **GitHub Issues**: https://github.com/strategiz/strategiz-ui/issues
+
+---
+
+**Last Updated**: 2025-10-25
+**Version**: 1.0.0
+**Maintained by**: Strategiz Engineering Team

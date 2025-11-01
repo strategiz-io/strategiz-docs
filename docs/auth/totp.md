@@ -1,3 +1,9 @@
+---
+id: totp
+title: Totp
+sidebar_label: Totp
+---
+
 # TOTP (Time-based One-Time Password) Authentication
 
 > **API Documentation**: [Swagger UI](http://localhost:8080/swagger-ui.html)  

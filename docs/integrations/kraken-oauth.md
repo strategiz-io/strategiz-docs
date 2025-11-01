@@ -1,4 +1,10 @@
 ---
+id: kraken-oauth
+title: Kraken Oauth
+sidebar_label: Kraken Oauth
+---
+
+---
 title: kraken oauth
 description: Documentation for kraken oauth (coming soon)
 ---

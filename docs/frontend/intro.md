@@ -1,4 +1,10 @@
 ---
+id: intro
+title: Intro
+sidebar_label: Intro
+---
+
+---
 title: README
 description: Documentation for README (coming soon)
 ---

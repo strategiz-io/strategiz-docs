@@ -1,4 +1,10 @@
 ---
+id: overview
+title: Overview
+sidebar_label: Overview
+---
+
+---
 title: Architecture Overview
 description: Strategiz platform architecture and design principles
 ---

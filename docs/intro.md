@@ -1,4 +1,10 @@
 ---
+id: intro
+title: Intro
+sidebar_label: Intro
+---
+
+---
 title: Welcome to Strategiz
 description: Complete documentation for the Strategiz trading platform
 slug: /
